@@ -46,6 +46,12 @@ now give me spark.sql solution for this questions without comments and explanati
 
 
 
+
+
+
+
+
+
 #DATAFRAMES
 
 example dataset 
@@ -80,6 +86,9 @@ now this is my new data set
 
 
 now give me dataframes solution for this questions without comments and explanation exactly like i showed above also change the inferSchema lines according to the new data set 
+
+
+
 
 
 
