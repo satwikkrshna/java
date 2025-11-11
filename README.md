@@ -1,4 +1,4 @@
-#SQL 
+#SQL i hate satwik
 
 example dataset 
 
