@@ -1,4 +1,4 @@
-given question 5,6 fast by 2:55 pls
+given question 5,6 fast by 2:55 pls ,SEE 5TH SOLUTION 
 
 
 
