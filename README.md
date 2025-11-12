@@ -1,4 +1,4 @@
-where is 8th soltution
+check below properly
 #SQL 
 
 example dataset 
@@ -67,8 +67,14 @@ flightid              flightname       flightytpe          flightcharge
 
 now give me spark.sql solution for this questions without comments and explanation exactly like i showed above also change the inferschema & createOrReplaceTempView lines according to the new data set 
 
+
+
+
+
+
 8 Solution
 spark.sql("SELECT DISTINCT b.custid, f.flighttype, b.travelclass FROM bookings b JOIN flights f ON b.flightid = f.flightid GROUP BY b.custid, f.flighttype, b.travelclass HAVING COUNT(b.flightid) > 1 ORDER BY b.custid ASC").show()
+
 
 
 
