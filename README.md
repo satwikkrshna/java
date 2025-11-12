@@ -1,4 +1,4 @@
-check below properly
+check below properly(7th solution above)
 #SQL 
 
 example dataset 
