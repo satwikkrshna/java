@@ -1,5 +1,5 @@
-7,8 solutions updated
-#SQL two questions in sql given ill refresh at 2:30
+7,8 solutions updated.... pyspark solution ala undadhu ra once see in example solution single line lo ravali mottham
+#SQL 
 
 example dataset 
 
