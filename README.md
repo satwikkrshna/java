@@ -1,4 +1,4 @@
-#SQL two questions in sql given ill refresh at 2:25
+#SQL two questions in sql given ill refresh at 2:30
 
 example dataset 
 
