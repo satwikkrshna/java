@@ -248,6 +248,15 @@ for i in rdd3.collect():
     print(i)
 
 
+4 Solution
+rdd3=bookrdd.map(lambda x:(x[2]+'_'+x[3],1)).reduceByKey(lambda a,b:a+b) \
+    .map(lambda x:(x[0].split('_')[0],x[0].split('_')[1],x[1])) \
+    .join(custrdd.map(lambda x:(x[0],x[1]))) \
+    .map(lambda x:(x[0],x[1][1],x[1][0][0],x[1][0][1])) \
+    .sortBy(lambda x:(x[0],x[1],x[2]))
+for i in rdd3.collect():
+    print(i)
+
 
 
 
