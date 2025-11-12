@@ -66,7 +66,23 @@ flightid              flightname       flightytpe          flightcharge
 
 now give me spark.sql solution for this questions without comments and explanation exactly like i showed above also change the inferschema & createOrReplaceTempView lines according to the new data set 
 
+8 Solution
+df_bookings=spark.read.csv('bookings.txt',header=True,inferSchema=True)
+df_customers=spark.read.csv('customers.txt',header=True,inferSchema=True)
+df_flights=spark.read.csv('flights.txt',header=True,inferSchema=True)
 
+df_bookings.createOrReplaceTempView('bookings')
+df_customers.createOrReplaceTempView('customers')
+df_flights.createOrReplaceTempView('flights')
+
+spark.sql("""
+SELECT DISTINCT b.custid, f.flighttype, b.travelclass
+FROM bookings b
+JOIN flights f ON b.flightid = f.flightid
+GROUP BY b.custid, f.flighttype, b.travelclass
+HAVING COUNT(b.flightid) > 1
+ORDER BY b.custid
+""").show()
 
 
 
