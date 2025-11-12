@@ -1,6 +1,6 @@
 ok 6th occhindhi 5th rale last lo cheddham 5th ill type 1,2,3,4 by 3:25
 
-
+i gave 1,2,3,4 pls give fast solutions 
 
 
 
@@ -72,6 +72,7 @@ bookingid,flightid,custid,travelclass,flightcharge,bookingdate
 customers.txt
 c301,John
 
+flights.txt
 flightid,flightname,flighttype,source,destination
 F101,Spice Jet Airlines,Domestic,Mumbai,Kolkata
 
@@ -87,16 +88,6 @@ flightid        flightname      flighttype      source        destination
    F105     Swiss Airlines      International    Zurich         Spain 
    F107     Indigo Airlines     International    Zurich         Spain
 
-question 6
-display flightid,flighttype and total flight charge collected by each flight as total_flight_charge(column alias) for all flights,. Display total fligth charges as 0 if a flight is yet to collect any flight charge arrange records based on descrending order of flight id.
-
-part of sample output is 
-
-flightid      flighttype     total_flight_charge    
-    F103        Domestic                    3000
-    F102    International                      0
-    F101        Domestic                    51500
-  
 
 
 
@@ -115,14 +106,13 @@ now give me dataframes solution for this questions without comments and explanat
 df2 = df_flights.groupBy("source", "destination", "flightid", "flightname", "flighttype").count().filter("count > 1").select("flightid","flightname","flighttype","source","destination").orderBy("source","destination","flightid").show()
 
 
-6 Solution
-df2 = df_flights.join(df_bookings, on="flightid", how="left").groupBy("flightid","flighttype").agg(sum("flightcharge").alias("total_flight_charge")).na.fill(0,subset=["total_flight_charge"]).orderBy(desc("flightid")).show()
-
 
 
 5 SOlution updated(Got two)
 i)
 fdf3=df_flight.join(df_flight.groupBy("source","destination").count().filter("count>1"),["source","destination"],"inner").select("flightid","flightname","flighttype","source","destination").orderBy("source","destination","flightid").show()
+
+
 ii)
 df_book=spark.read.csv('bookings.txt',header=True,inferSchema=True)
 df_cust=spark.read.csv('customers.txt',header=True,inferSchema=True)
@@ -131,13 +121,6 @@ df_flight=spark.read.csv('flights.txt',header=True,inferSchema=True)
 fdf2=df_flight.groupBy("source","destination").count().filter("count>1")
 fdf3=df_flight.join(fdf2,["source","destination"],"inner").select("flightid","flightname","flighttype","source","destination").orderBy("source","destination","flightid").show()
 
-
-
-6 Solution updated(Got two)
-i)
-fdf3=df_book.groupBy("flightid").sum("flightcharge").withColumnRenamed("sum(flightcharge)","total_flight_charge").join(df_flight,["flightid"],"right").select("flightid","flighttype","total_flight_charge").na.fill(0).orderBy("flightid",ascending=False).show()
-ii)
-fdf3=df_flight.join(df_book.groupBy("flightid").sum("flightcharge").withColumnRenamed("sum(flightcharge)","total_flight_charge"),["flightid"],"left").select("flightid","flighttype","total_flight_charge").na.fill(0).orderBy(df_flight.flightid.desc()).show()
 
 
 
@@ -184,6 +167,59 @@ for i in rdd3.collect():
 print(i)
 
 now this is my new data set 
+
+bookings.txt
+bookingid,flightid,custid,travelclass,flightcharge,bookingdate
+201,F101,C301,Business,12000,22-Mar-18
+
+customers.txt
+c301,John
+
+flights.txt
+flightid,flightname,flighttype,source,destination
+F101,Spice Jet Airlines,Domestic,Mumbai,Kolkata
+
+
+
+question 1 
+display flightid,flightname and flighttype of glight whose name contains the word 'Jet'(do case insensitive match) or flighttype is 'Domestic' output must be in tuple format 
+
+a part of sample oytput is 
+
+['F101', 'Space Jet Airlines', 'Domestic']
+['F102', 'Indian jet Airlines', 'International']
+['F103', 'Deccan Airlines', 'Domestic']
+
+
+
+question 2
+display flightid and total number of bookings available for flights which hae atleast 1 booking. Arrage the records based on increasing order of flightid. output must be in tuple format 
+a part of sample output is 
+
+('F101', 4)
+('F103', 1)
+
+
+
+question 3
+display the details of bookins with max flightcharge. arrange the records based on the descending order of booking id out put must be in tuple form 
+a part of output is 
+
+['206', 'F105', 'C301', 'Business', '30000', '22-Jan-19'] 
+['202', 'F105', 'C302', 'Business', '30000', '17-Sep-18'] 
+
+
+question 4 
+display custid,custname,travelclass and total number of bookings based on travel class for each customer. arrange the records based on alphabetical order of custid, custname and travelclass output must be in tupele format 
+
+a part of sample output is 
+
+('C303', 'Robert', 'Business', 2)
+('C304', 'Albert', 'Business', 1)
+('C304', 'Albert', 'Economy', 2)
+
+
+
 
 now give me pyspark core solution for this questions without comments and explanation exactly like i showed above also change the header and split lines according to new data set 
 
