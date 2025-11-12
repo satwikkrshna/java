@@ -111,6 +111,35 @@ flightid      flighttype     total_flight_charge
   
 
 
+Solution 5
+```python
+df_book = spark.read.csv('bookings.txt', header=True, inferSchema=True)
+df_cust = spark.read.csv('customers.txt', header=True, inferSchema=True)
+df_flight = spark.read.csv('flightid.txt', header=True, inferSchema=True)
+
+df_flight.createOrReplaceTempView("flights")
+df_book.createOrReplaceTempView("bookings")
+
+spark.sql("""
+SELECT flightid, flightname, flighttype, source, destination
+FROM flights
+WHERE (source, destination) IN (
+    SELECT source, destination
+    FROM flights
+    GROUP BY source, destination
+    HAVING COUNT(*) > 1
+)
+ORDER BY source, destination, flightid
+""").show()
+
+spark.sql("""
+SELECT f.flightid, f.flighttype, SUM(b.flightcharge) AS total_flight_charge
+FROM flights f
+LEFT JOIN bookings b ON f.flightid = b.flightid
+GROUP BY f.flightid, f.flighttype
+ORDER BY f.flightid
+""").show()
+```
 
 
 
