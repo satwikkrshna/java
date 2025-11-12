@@ -232,6 +232,11 @@ rdd3 = rdd2.filter(lambda x: ("jet" in x[1].lower() or x[2] == "Domestic"))
 for i in rdd3.collect():
     print(i)
 
+2 Solution
+rdd3=bookrdd.map(lambda x:(x[1],1)).reduceByKey(lambda a,b:a+b).sortByKey()
+for i in rdd3.collect():
+    print(i)
+
 
 
 
