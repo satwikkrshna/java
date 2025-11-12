@@ -1,5 +1,4 @@
-check now
-7,8 solutions updated.... pyspark solution ala undadhu ra once see in example solution single line lo ravali mottham
+where is 8th soltution
 #SQL 
 
 example dataset 
