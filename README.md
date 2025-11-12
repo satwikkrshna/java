@@ -1,74 +1,4 @@
-ok done 7,8 now ill give 6,5 questions by 2:47
-#SQL 
-
-example dataset 
-
-cust.txt
-cust_id,name,ctype,email,city
-101,John doe,Premium,john.doe@email.com,New York
-
-prod.txt
-p_id,pname,category,subcategory,price
-1001,Laptop Pro,Electronics,Laptops,1200.0
-
-ord.csv
-o_id,cust_id,p_id,ord_date,del_date,quantity,ord_amount
-2001,101,1001,2025-08-11,2025-08-14,1,1200.0
-
-this is how my data set looks like 
-i already typed this below code 
-
-df_cust=spark.read.csv('cust.txt',header=True,inferSchema=True)
-df_prod=spark.read.csv('prod.txt',header=True,inferSchema=True)
-df_prod=spark.read.csv('ord.txt',header=True,inferSchema=True)
-
-df_cust.createOrReplaceTempView('cust')
-df_cust.createOrReplaceTempView('prod')
-df_cust.createOrReplaceTempView('ord')
-from pyspark.sql.functions import *
-
-the example question is 
-
-Display the details of premium customers who are from "Houston" or "Chicago"
-
-spark sql solution is 
-spark.sql("select * from cust where ctype='Premium' and city ='Houston' or city ='Chicago'").show()
-
-now this is my new data set 
-
-bookings.txt
-bookingid,flightid,custid,travelclass,flightcharge,bookingdate
-201,F101,C301,Business,12000,22-Mar-18
-
-customers.txt
-c301,John
-
-flightid,flightname,flighttype,source,destination
-F101,Spice Jet Airlines,Domestic,Mumbai,Kolkata
-
-question 8
-Display custid,flightype and travelclass of customers who have booked more than one flight with same flight type and same travel class. Arrange the records based on the alphabetical order of custi. note: display unique whereever applicable.
-
-some part of expected output is
-
-custid      flighttype   travelclass
-  C302        Domestic       Economy
-  C303    International     Business
-
-  Question 7
-  Display flightid,flightname,flighttype and flightcharge for all flights whose flight charge is less than average flight charge of all flights booked. Arrange the records based on the alphabetical order of flightid,flighttype,flightcharge. note display unique where ever applicable
-
-some of the sample output is 
-
-flightid              flightname       flightytpe          flightcharge
-   F101       Spice Jet Airlines         Domestic                 12000
-   F101       Spice Jet Airlines         Domestic                 17500
-   F103          Deccan Airlines         Domestic                  3000
-
-now give me spark.sql solution for this questions without comments and explanation exactly like i showed above also change the inferschema & createOrReplaceTempView lines according to the new data set 
-
-
-
+given question 5,6 fast by 2:55 pls
 
 
 
@@ -80,6 +10,16 @@ spark.sql("SELECT DISTINCT b.custid, f.flighttype, b.travelclass FROM bookings b
 
 7 Solution
 spark.sql("select distinct f.flightid, f.flightname, f.flighttype, b.flightcharge from flights f join bookings b on f.flightid=b.flightid where b.flightcharge < (select avg(flightcharge) from bookings) order by f.flightid, f.flighttype, b.flightcharge").show()
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -136,6 +76,43 @@ dataframes solution is
 cdf2=df_cust.filter("ctype=='Premium' and city=='Houston' or city=='Chicago'").show()
 
 now this is my new data set 
+
+bookings.txt
+bookingid,flightid,custid,travelclass,flightcharge,bookingdate
+201,F101,C301,Business,12000,22-Mar-18
+
+customers.txt
+c301,John
+
+flightid,flightname,flighttype,source,destination
+F101,Spice Jet Airlines,Domestic,Mumbai,Kolkata
+
+
+question 5 
+display flightid,flightname,flighttype,source and destination for the flights which are traveling btw same source and desticnation. Arrange the records in alphabetical order of source, destincation and flight id 
+
+the part od sample output is 
+
+flightid        flightname      flighttype      source        destination
+   F103     Deccan Airlines      Domestic       Chennai         Bengaluru
+   F106        Air India         Domestic       Chennai         Bengaluru
+   F105     Swiss Airlines      International    Zurich         Spain 
+   F107     Indigo Airlines     International    Zurich         Spain
+
+question 6
+display flightid,flighttype and total flight charge collected by each flight as total_flight_charge(column alias) for all flights,. Display total fligth charges as 0 if a flight is yet to collect any flight charge arrange records based on descrending order of flight id.
+
+part of sample output is 
+
+flightid      flighttype     total_flight_charge    
+    F103        Domestic                    3000
+    F102    International                      0
+    F101        Domestic                    51500
+  
+
+
+
+
 
 
 now give me dataframes solution for this questions without comments and explanation exactly like i showed above also change the inferSchema lines according to the new data set 
