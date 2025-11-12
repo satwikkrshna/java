@@ -1,19 +1,4 @@
-5th ichenu after 6th,ala giving
-6th kuda ichenu below
-given question 5,6 fast by 2:55 pls ,Check 
-5th not working want 6th also simple solution
-
-Check 5,6 SOlutions before RDD
-
-8 Solution
-spark.sql("SELECT DISTINCT b.custid, f.flighttype, b.travelclass FROM bookings b JOIN flights f ON b.flightid = f.flightid GROUP BY b.custid, f.flighttype, b.travelclass HAVING COUNT(b.flightid) > 1 ORDER BY b.custid ASC").show()
-
-
-
-
-7 Solution
-spark.sql("select distinct f.flightid, f.flightname, f.flighttype, b.flightcharge from flights f join bookings b on f.flightid=b.flightid where b.flightcharge < (select avg(flightcharge) from bookings) order by f.flightid, f.flighttype, b.flightcharge").show()
-
+ok 6th occhindhi 5th rale last lo cheddham 5th ill type 1,2,3,4 by 3:25
 
 
 
