@@ -223,6 +223,14 @@ a part of sample output is
 
 now give me pyspark core solution for this questions without comments and explanation exactly like i showed above also change the header and split lines according to new data set 
 
+1 SOlution
+flights_rdd = sc.textFile("flights.txt")
+header = flights_rdd.first()
+rdd2 = flights_rdd.filter(lambda x: x != header).map(lambda x: x.split(","))
+
+rdd3 = rdd2.filter(lambda x: ("jet" in x[1].lower() or x[2] == "Domestic"))
+for i in rdd3.collect():
+    print(i)
 
 
 
