@@ -237,6 +237,16 @@ rdd3=bookrdd.map(lambda x:(x[1],1)).reduceByKey(lambda a,b:a+b).sortByKey()
 for i in rdd3.collect():
     print(i)
 
+3 SOlution
+book_rdd=sc.textFile("bookings.txt")
+header=book_rdd.first()
+bookrdd=book_rdd.filter(lambda x:x!=header).map(lambda x:x.split(","))
+
+max_charge=bookrdd.map(lambda x:float(x[4])).max()
+rdd3=bookrdd.filter(lambda x:float(x[4])==max_charge).sortBy(lambda x:x[0],ascending=False)
+for i in rdd3.collect():
+    print(i)
+
 
 
 
