@@ -1,5 +1,57 @@
 mowa clear everything and give just 2,4 solutions 
 
+Latest:
+from pyspark import SparkContext
+
+sc = SparkContext.getOrCreate()
+
+bookings_rdd = sc.textFile("bookings.txt")
+header = bookings_rdd.first()
+bookingsrdd = bookings_rdd.filter(lambda x: x != header).map(lambda x: x.split(","))
+
+customers_rdd = sc.textFile("customers.txt")
+header = customers_rdd.first()
+customersrdd = customers_rdd.filter(lambda x: x != header).map(lambda x: x.split(","))
+
+# Question 2
+rdd2 = bookingsrdd.map(lambda x: (x[1], 1))
+rdd3 = rdd2.reduceByKey(lambda a, b: a + b).sortByKey()
+for i in rdd3.collect():
+    print(i)
+
+# Question 4
+cust_map = customersrdd.map(lambda x: (x[0].upper(), x[1]))
+rdd4 = bookingsrdd.map(lambda x: ((x[2].upper(), x[3]), 1))
+rdd5 = rdd4.reduceByKey(lambda a, b: a + b)
+rdd6 = rdd5.map(lambda x: (x[0][0], x[0][1], x[1]))
+rdd7 = rdd6.map(lambda x: (x[0], next(c[1] for c in customersrdd.collect() if c[0].upper() == x[0]), x[1], x[2]))
+rdd8 = rdd7.sortBy(lambda x: (x[0], x[1], x[2]))
+for i in rdd8.collect():
+    print(i)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 2)Solution
 sc = SparkContext.getOrCreate()
