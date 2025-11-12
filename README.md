@@ -1,4 +1,3 @@
-chepp
 #SQL 
 
 example dataset 
