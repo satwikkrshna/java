@@ -1,5 +1,5 @@
 5th ichenu after 6th,ala giving
-
+6th kuda ichenu below
 given question 5,6 fast by 2:55 pls ,Check 
 5th not working want 6th also simple solution
 
@@ -148,6 +148,11 @@ fdf3=df_flight.join(fdf2,["source","destination"],"inner").select("flightid","fl
 
 
 
+6 Solution updated(Got two)
+i)
+fdf3=df_book.groupBy("flightid").sum("flightcharge").withColumnRenamed("sum(flightcharge)","total_flight_charge").join(df_flight,["flightid"],"right").select("flightid","flighttype","total_flight_charge").na.fill(0).orderBy("flightid",ascending=False).show()
+ii)
+fdf3=df_flight.join(df_book.groupBy("flightid").sum("flightcharge").withColumnRenamed("sum(flightcharge)","total_flight_charge"),["flightid"],"left").select("flightid","flighttype","total_flight_charge").na.fill(0).orderBy(df_flight.flightid.desc()).show()
 
 
 
