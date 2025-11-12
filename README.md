@@ -4,6 +4,25 @@
 1 laga full solution kavali 2,3,4
 
 
+2)Solution
+sc = SparkContext.getOrCreate()
+
+bookings_rdd = sc.textFile("bookings.txt")
+header = bookings_rdd.first()
+bookingsrdd = bookings_rdd.filter(lambda x: x != header).map(lambda x: x.split(","))
+
+flights_rdd = sc.textFile("flights.txt")
+header = flights_rdd.first()
+flightsrdd = flights_rdd.filter(lambda x: x != header).map(lambda x: x.split(","))
+
+customers_rdd = sc.textFile("customers.txt")
+header = customers_rdd.first()
+customersrdd = customers_rdd.filter(lambda x: x != header).map(lambda x: x.split(","))
+
+rdd2 = bookingsrdd.map(lambda x: (x[1], 1))
+rdd3 = rdd2.reduceByKey(lambda a, b: a + b).sortByKey()
+for i in rdd3.collect():
+    print(i)
 
 
 
