@@ -1,4 +1,4 @@
-#SQL 
+#SQL two questions in sql given ill refresh at 2:25
 
 example dataset 
 
@@ -65,6 +65,16 @@ flightid              flightname       flightytpe          flightcharge
    F103          Deccan Airlines         Domestic                  3000
 
 now give me spark.sql solution for this questions without comments and explanation exactly like i showed above also change the inferschema & createOrReplaceTempView lines according to the new data set 
+
+
+
+
+
+
+
+
+
+
 
 
 
