@@ -257,7 +257,11 @@ rdd3=bookrdd.map(lambda x:(x[2]+'_'+x[3],1)).reduceByKey(lambda a,b:a+b) \
 for i in rdd3.collect():
     print(i)
 
-
+*******
+3 Updated
+rdd3=bookrdd.filter(lambda x: float(x[4])==bookrdd.map(lambda y: float(y[4])).max()).sortBy(lambda x: x[0], ascending=False)
+for i in rdd3.collect():
+    print(i)
 
 
 
