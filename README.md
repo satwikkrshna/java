@@ -1,4 +1,4 @@
-ok 6th occhindhi 5th rale last lo cheddham 5th ill type 1,2,3,4 by 3:25
+1,3 updated dhi last lo undhi
 
 i gave 1,2,3,4 pls give fast solutions 
 
@@ -260,6 +260,11 @@ for i in rdd3.collect():
 *******
 3 Updated
 rdd3=bookrdd.filter(lambda x: float(x[4])==bookrdd.map(lambda y: float(y[4])).max()).sortBy(lambda x: x[0], ascending=False)
+for i in rdd3.collect():
+    print(i)
+
+1 updated
+rdd3=flightrdd.filter(lambda x: ('jet' in x[1].lower()) or (x[2]=='Domestic'))
 for i in rdd3.collect():
     print(i)
 
