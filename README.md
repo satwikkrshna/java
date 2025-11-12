@@ -1,3 +1,4 @@
+7,8 solutions updated
 #SQL two questions in sql given ill refresh at 2:30
 
 example dataset 
@@ -83,6 +84,26 @@ GROUP BY b.custid, f.flighttype, b.travelclass
 HAVING COUNT(b.flightid) > 1
 ORDER BY b.custid
 """).show()
+
+
+7 Solution
+df_bookings = spark.read.csv("bookings.txt", header=True, inferSchema=True)
+df_customers = spark.read.csv("customers.txt", header=True, inferSchema=True)
+df_flights = spark.read.csv("flights.txt", header=True, inferSchema=True)
+
+df_bookings.createOrReplaceTempView("bookings")
+df_customers.createOrReplaceTempView("customers")
+df_flights.createOrReplaceTempView("flights")
+
+spark.sql("""
+    SELECT DISTINCT f.flightid, f.flightname, f.flighttype, b.flightcharge
+    FROM flights f
+    JOIN bookings b
+    ON f.flightid = b.flightid
+    WHERE b.flightcharge < (SELECT AVG(flightcharge) FROM bookings)
+    ORDER BY f.flightid, f.flighttype, b.flightcharge
+""").show()
+
 
 
 
