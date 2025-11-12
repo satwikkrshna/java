@@ -1,7 +1,7 @@
 2,3,4 mowa okasari see rdd=rdd2. ante rdd2 nunchi taking adhi declare cheyyale give like give import lines also split and head ani ivvu for 2,3,4
 
 
-
+1 laga full solution kavali 2,3,4
 
 
 
@@ -86,14 +86,7 @@ F101,Spice Jet Airlines,Domestic,Mumbai,Kolkata
 
 
 
-question 1 
-display flightid,flightname and flighttype of glight whose name contains the word 'Jet'(do case insensitive match) or flighttype is 'Domestic' output must be in tuple format 
 
-a part of sample oytput is 
-
-['F101', 'Space Jet Airlines', 'Domestic']
-['F102', 'Indian jet Airlines', 'International']
-['F103', 'Deccan Airlines', 'Domestic']
 
 
 
