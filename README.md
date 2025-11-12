@@ -115,12 +115,6 @@ a part of sample output is
 
 
 
-question 3
-display the details of bookins with max flightcharge. arrange the records based on the descending order of booking id out put must be in tuple form 
-a part of output is 
-
-['206', 'F105', 'C301', 'Business', '30000', '22-Jan-19'] 
-['202', 'F105', 'C302', 'Business', '30000', '17-Sep-18'] 
 
 
 question 4 
@@ -137,27 +131,10 @@ a part of sample output is
 
 now give me pyspark core solution for this questions without comments and explanation exactly like i showed above also change the header and split lines according to new data set 
 
-1 SOlution
-flights_rdd = sc.textFile("flights.txt")
-header = flights_rdd.first()
-rdd2 = flights_rdd.filter(lambda x: x != header).map(lambda x: x.split(","))
 
-rdd3 = rdd2.filter(lambda x: ("jet" in x[1].lower() or x[2] == "Domestic"))
-for i in rdd3.collect():
-    print(i)
 
 2 Solution
 rdd3=bookrdd.map(lambda x:(x[1],1)).reduceByKey(lambda a,b:a+b).sortByKey()
-for i in rdd3.collect():
-    print(i)
-
-3 SOlution
-book_rdd=sc.textFile("bookings.txt")
-header=book_rdd.first()
-bookrdd=book_rdd.filter(lambda x:x!=header).map(lambda x:x.split(","))
-
-max_charge=bookrdd.map(lambda x:float(x[4])).max()
-rdd3=bookrdd.filter(lambda x:float(x[4])==max_charge).sortBy(lambda x:x[0],ascending=False)
 for i in rdd3.collect():
     print(i)
 
@@ -172,19 +149,4 @@ for i in rdd3.collect():
     print(i)
 
 *******
-3 Updated
-rdd3=bookrdd.filter(lambda x: float(x[4])==bookrdd.map(lambda y: float(y[4])).max()).sortBy(lambda x: x[0], ascending=False)
-for i in rdd3.collect():
-    print(i)
-
-1 updated
-rdd3=flightrdd.filter(lambda x: ('jet' in x[1].lower()) or (x[2]=='Domestic'))
-for i in rdd3.collect():
-    print(i)
-
-
-
-
-
-
 
