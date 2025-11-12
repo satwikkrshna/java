@@ -1,4 +1,4 @@
-check below properly(7th solution above)
+ok done 7,8 now ill give 6,5 questions by 2:47
 #SQL 
 
 example dataset 
