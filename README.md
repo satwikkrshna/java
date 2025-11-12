@@ -1,4 +1,5 @@
 given question 5,6 fast by 2:55 pls ,Check 
+5th not working want 6th also simple solution
 
 Check 5,6 SOlutions before RDD
 
