@@ -1,7 +1,4 @@
-2,3,4 mowa okasari see rdd=rdd2. ante rdd2 nunchi taking adhi declare cheyyale give like give import lines also split and head ani ivvu for 2,3,4
-
-
-1 laga full solution kavali 2,3,4
+mowa clear everything and give just 2,4 solutions 
 
 
 2)Solution
