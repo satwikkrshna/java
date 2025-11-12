@@ -1,6 +1,4 @@
-1,3 updated dhi last lo undhi
-
-i gave 1,2,3,4 pls give fast solutions 
+2,3,4 mowa okasari see rdd=rdd2. ante rdd2 nunchi taking adhi declare cheyyale give like give import lines also split and head ani ivvu for 2,3,4
 
 
 
