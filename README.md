@@ -1,6 +1,6 @@
 given question 5,6 fast by 2:55 pls ,SEE 5TH SOLUTION 
 
-
+Check 5,6 SOlutions before RDD
 
 8 Solution
 spark.sql("SELECT DISTINCT b.custid, f.flighttype, b.travelclass FROM bookings b JOIN flights f ON b.flightid = f.flightid GROUP BY b.custid, f.flighttype, b.travelclass HAVING COUNT(b.flightid) > 1 ORDER BY b.custid ASC").show()
@@ -151,7 +151,12 @@ now give me dataframes solution for this questions without comments and explanat
 
 
 
+5 Solution
+df2 = df_flights.groupBy("source", "destination", "flightid", "flightname", "flighttype").count().filter("count > 1").select("flightid","flightname","flighttype","source","destination").orderBy("source","destination","flightid").show()
 
+
+6 Solution
+df2 = df_flights.join(df_bookings, on="flightid", how="left").groupBy("flightid","flighttype").agg(sum("flightcharge").alias("total_flight_charge")).na.fill(0,subset=["total_flight_charge"]).orderBy(desc("flightid")).show()
 
 
 
