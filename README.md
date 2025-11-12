@@ -133,6 +133,20 @@ df2 = df_flights.join(df_bookings, on="flightid", how="left").groupBy("flightid"
 
 
 
+5 SOlution updated(Got two)
+i)
+fdf3=df_flight.join(df_flight.groupBy("source","destination").count().filter("count>1"),["source","destination"],"inner").select("flightid","flightname","flighttype","source","destination").orderBy("source","destination","flightid").show()
+ii)
+df_book=spark.read.csv('bookings.txt',header=True,inferSchema=True)
+df_cust=spark.read.csv('customers.txt',header=True,inferSchema=True)
+df_flight=spark.read.csv('flights.txt',header=True,inferSchema=True)
+
+fdf2=df_flight.groupBy("source","destination").count().filter("count>1")
+fdf3=df_flight.join(fdf2,["source","destination"],"inner").select("flightid","flightname","flighttype","source","destination").orderBy("source","destination","flightid").show()
+
+
+
+
 
 
 
