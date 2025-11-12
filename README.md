@@ -35,6 +35,34 @@ spark.sql("select * from cust where ctype='Premium' and city ='Houston' or city 
 
 now this is my new data set 
 
+bookings.txt
+bookingid,flightid,custid,travelclass,flightcharge,bookingdate
+201,F101,C301,Business,12000,22-Mar-18
+
+customers.txt
+c301,John
+
+flightid,flightname,flighttype,source,destination
+F101,Spice Jet Airlines,Domestic,Mumbai,Kolkata
+
+question 8
+Display custid,flightype and travelclass of customers who have booked more than one flight with same flight type and same travel class. Arrange the records based on the alphabetical order of custi. note: display unique whereever applicable.
+
+some part of expected output is
+
+custid      flighttype   travelclass
+  C302        Domestic       Economy
+  C303    International     Business
+
+  Question 7
+  Display flightid,flightname,flighttype and flightcharge for all flights whose flight charge is less than average flight charge of all flights booked. Arrange the records based on the alphabetical order of flightid,flighttype,flightcharge. note display unique where ever applicable
+
+some of the sample output is 
+
+flightid              flightname       flightytpe          flightcharge
+   F101       Spice Jet Airlines         Domestic                 12000
+   F101       Spice Jet Airlines         Domestic                 17500
+   F103          Deccan Airlines         Domestic                  3000
 
 now give me spark.sql solution for this questions without comments and explanation exactly like i showed above also change the inferschema & createOrReplaceTempView lines according to the new data set 
 
