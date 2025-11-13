@@ -151,8 +151,6 @@ this is the sample data set
 {_id:2,Name:"Micheal",Hobbies:["Playing Cricket","Reading Novels"],Address:{DoorNo:"22B",Street:"Fire Street",City:"Noida",Pincode:234567},Password:"M@123",Education:"Btech",Salary:45000}
 
 
-
-
 the sample question 
 display maximum salary of candidates who are in bengalore
 
