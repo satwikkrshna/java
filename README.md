@@ -1,4 +1,4 @@
-orey adhi kadhu anukunta solution inkemanna chudandi okasari 
+guys chalu chalu thanks aipoindhi exam all working
 
 Try this:(both try)
 
