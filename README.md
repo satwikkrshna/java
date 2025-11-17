@@ -1,5 +1,5 @@
-pettesem
-1st question python file handling icchesa guys dhani kindha answer pettandi pettaka type here pettesam ani 
+adhenti lite grey lo undhi comments ah adhi?
+
 
 #python file handling sample question
 
