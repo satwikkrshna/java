@@ -1,6 +1,6 @@
 orey adhi kadhu anukunta solution inkemanna chudandi okasari 
 
-Try this:
+Try this:(both try)
 
 db.twowheelers.aggregate([
   {$group: {_id: "$type"}},
@@ -12,7 +12,11 @@ db.twowheelers.aggregate([
 Mongo
 Solution
 1)
-db.twowheelers.distinct("type")
+
+db.twowheelers.aggregate([
+  { $group: { _id: "$type" } },
+  { $project: { _id: 0, type: "$_id" } }
+])
 
 ------------------------------------------------------------------------------------------------------------
 
