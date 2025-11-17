@@ -55,21 +55,33 @@ twowheelers.txt
 
 
 
-question 1
-display the distinct types of vehicles that are stored in the colelction 
-for the sample data given the following records will appear in the output along with other records..
 
-a part of SAMPLE OUTPUT is 
+question 3
 
-[
-"EV",
-"Motorcycle",
-"Scooter"
-]
 
-Answer: db.twowheelers.distinct("type")
+display  the color and number of vehicles available in each color as noofvehicles(column alias) by considersing more than 5 vehicles are available in each color. sort the result based on the noofvehicles in ascending order 
 
-question 4 
+
+some part of sample output is 
+
+{
+  "_id":"Red",
+  "noofvehicles:6"
+},
+{
+"_id":"Black",
+"noofvehicles":9
+},
+  
+
+
+  
+  
+  
+  
+
+
+
 
 
   
