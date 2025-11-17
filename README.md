@@ -1,4 +1,4 @@
-ill give mongodb questions by 3:20 or 3:23
+orey adhi kadhu anukunta solution inkemanna chudandi okasari 
 
 Mongo
 Solution
