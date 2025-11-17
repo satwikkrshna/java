@@ -1,5 +1,9 @@
 ill give mongodb questions by 3:20 or 3:23
 
+Mongo
+Solution
+1)
+db.twowheelers.distinct("type")
 
 ------------------------------------------------------------------------------------------------------------
 
