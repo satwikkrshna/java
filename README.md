@@ -1,5 +1,14 @@
 orey adhi kadhu anukunta solution inkemanna chudandi okasari 
 
+Try this:
+
+db.twowheelers.aggregate([
+  {$group: {_id: "$type"}},
+  {$sort: {_id: 1}},
+  {$group: {_id: null, types: {$push: "$type"}}},
+  {$project: {_id: 0, types: 1}}
+])
+
 Mongo
 Solution
 1)
