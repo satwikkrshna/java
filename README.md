@@ -1,4 +1,4 @@
-adhenti lite grey lo undhi comments ah adhi?
+no, motham code
 
 
 #python file handling sample question
