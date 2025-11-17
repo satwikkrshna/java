@@ -1,4 +1,4 @@
-no, motham code
+no, motham code (Added separate pyhton file for first question soluiton with indentation)
 
 
 #python file handling sample question
