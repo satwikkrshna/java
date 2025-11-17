@@ -7,22 +7,6 @@ ill give mongodb questions by 3:20 or 3:23
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #MONGO DB 
 this is the sample data set 
 {_id:1,Name:"Helen",Hobbies:["Listening to Music","Reading books"],Address:{DoorNo:1,Street:"New Street",City:"Bangalore",Pincode:123456},Password:"H@123",Education:"B.E",Salary:25000}
@@ -46,4 +30,34 @@ now this is the actual dataset and actual question also db.(this should be datas
 
 
 MONGO DB QUESTION 
-this is the sample question 
+the data set is 
+
+
+twowheelers.txt
+{type:"Scooter",name:"Acti125",colors:["Red","Gray","Black","White","Blue"],bodydimension:{length:1850,width:707,height:1160,weight:107,fueltank:5.3},enginedisplacement:123.92,range:55,exshowroomprice:92233}
+
+
+
+question 1
+display the distinct types of vehicles that are stored in the colelction 
+for the sample data given the following records will appear in the output along with other records..
+
+a part of SAMPLE OUTPUT is 
+
+[
+"EV",
+"Motorcycle",
+"Scooter"
+]
+
+
+
+question 4 
+
+
+  
+  
+  
+  
+
+
