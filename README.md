@@ -1,5 +1,6 @@
 1st dhi working ill write second question by 2:55
 
+2nd question pettesa guys  ans pls
 
 
 
@@ -66,9 +67,29 @@ s=input("Enter text:")
 print(normalize_text(s))
 
 
-now this is the actual dataset and actual question  without any comments or explanation just give solution 
+now this is the actual question  without any comments or explanation just give solution 
+
+write a function process_data(p_value1,p_value2) in python which has two parameter p_value1 and p_value2. p_value 2 i default parameter with value none
+
+the function must process p_value1,p_value2 and return the data as per following requirements 
+
+a. if the data type of the parameter p_value1 is string and is not empty return the frequency of the ocurence of character "e" in the string 
+b. if the data type of the parameter p_value1 is tuple return the last element of the tuple
+c. if the data type of the parameter p_value1  and p_value2 is integer retunr a random number between p_value1 and p_value2-1.
+d. if the data type of the parameter p_value1 is float return the smallest integer that is greater than or equal to p_value1
+e. if the data type of the parameter p_value1 is is list and p_value2 is any data type add p_value2 as the second element of p_value1. return modified list.
+f. if the data type of the parameter p_value1 is dictionary, add a new key as M value as Mysuru. return p_value 1.
 
 
+example
+
+requirement           p_value1              p_value2              output
+a                   "Apple"            None                         1
+b                 (10,20,30)               None                       30
+c                    2,8                   None                       6
+d                     2,3                  None                      3
+e               [100,200,300]             10              [100,10,200,300]
+f              {"I":"India,"A":"USA"}                       {"I":India","A":"USA","M":"Mysuru"}
 
 
 
