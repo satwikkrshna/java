@@ -162,7 +162,8 @@ use like either aggregate or find or updatone anything shich is required
 now this is the actual dataset and actual question  without any comments or explanation just give solution 
 
 
-now this is the actual dataset and actual question 
+now this is the actual dataset and actual question also db.(this should be datasetname).aggretage take care of this not db.collections all the time change the collections according to data set 
+
 
 
 
