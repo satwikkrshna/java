@@ -50,7 +50,7 @@ a part of SAMPLE OUTPUT is
 "Scooter"
 ]
 
-
+Answer: db.twowheelers.distinct("type")
 
 question 4 
 
