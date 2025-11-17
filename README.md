@@ -1,3 +1,5 @@
+1st question python file handling icchesa guys dhani kindha answer pettandi pettaka type here pettesam ani 
+
 #python file handling sample question
 
 my sample data set is movies.txt
@@ -41,10 +43,42 @@ movies.sort(key=lambda x:x[5], reverse=True)
 now this is the actual dataset and actual question  without any comments or explanation just give solution 
 
 
+question 1:
+data set 
+
+winter_fashion.txt
+
+Brand,Category,Material,Price,Popularity_Score
+Nike,Beanie,Wool,710.14,4
+Nike,Gloves,Cotton,77.51,6.9
+
+the question is 
+
+create a new column OfferPrice, to display new price (price after discount) based on the following conditions
+
+if the material is wool 5% discount on thr price
+if the material is cotton, 7% discount on price
+if the material is Cashmere, 6% discount on the price
+if the material is leather, 2% discount on the price
+if the material is polyester 10% discount on thr price 
+note OfferPrice=Price-(Discount*Price/100). round the value to 2 decimal places 
+
+also create a new colum Trend to display the value based on the following conditions
+if the Popularity_Score is more than 9 then the trend is Emerging
+if the Popularity_Score is more than 7 then the trend is Trending.
+if the Popularity_Score is more than 5 then the trend is Classic.
+else it is Outdated
+
+also print header and processed data in the following format 
+for the sample data given the following records will appear in the output along with other records
 
 
+a part of SAMPLE OUTPUT is 
 
-
+Brand,Categroy,Material,Price,Popularity_Score,OfferPrice,Trend
+Nike,Beanie,Wool,710.14,4,674.63,Outdated
+Nike,Gloves,Cotton,77.51,6.9,72.08,Classic
+Nike,Boots,Cashmere,414.74,9.4,389.86,Emerging
 
 
 
