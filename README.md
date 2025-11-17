@@ -74,7 +74,13 @@ some part of sample output is
 },
   
 
-
+Solution:
+db.twowheelers.aggregate([
+  {$unwind: "$colors"},
+  {$group: {_id: "$colors", noofvehicles: {$sum: 1}}},
+  {$match: {noofvehicles: {$gt: 5}}},
+  {$sort: {noofvehicles: 1}}
+])
   
   
   
